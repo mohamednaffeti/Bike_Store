@@ -19,12 +19,12 @@ public class Main {
         IBikeBuilder iBikeBuilder = Director.electricBikeBuilder();
         IBikeFactory iBikeFactory = BikeFactory.getFactory(iBikeBuilder);
         Bike electricBike = iBikeFactory.createBike(iBikeBuilder);
+
+        //Decorator example
         Bike classicBike = new ClassicBike();
         System.out.println("the initial cost is " + classicBike.cost());
         classicBike = new BikeWithhelmet(classicBike);
         System.out.println("The cost of a bike with helmet is" + classicBike.cost());
-
-        //Decorator example
         Bike electronicBike = new ElectricBike();
         System.out.println("the initial cost is " + electronicBike.cost());
         electronicBike = new BikeWithDoubleBattery(electricBike);
