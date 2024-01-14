@@ -2,11 +2,15 @@ package org.example;
 
 import org.example.AbstractFactory.BikeFactory;
 import org.example.AbstractFactory.IBikeFactory;
+import org.example.Adapter.BikeMaintenanceAdapter;
+import org.example.Adapter.CalculateCostMaintenanceNew;
+import org.example.Adapter.CalculateMaintenanceCostOld;
 import org.example.Builder.Director;
 import org.example.Builder.IBikeBuilder;
 import org.example.Decorator.BikeWithDoubleBattery;
 import org.example.Decorator.BikeWithhelmet;
 import org.example.Model.Bike;
+import org.example.Model.Buyer;
 import org.example.Model.ClassicBike;
 import org.example.Model.ElectricBike;
 import org.example.Proxy.BikeProxy;
@@ -38,5 +42,26 @@ public class Main {
             e.getStackTrace();
         }
         System.out.println("proxy " + bikeProxy.cost());
+
+        //Adapter pattern
+        //adaptee , old method
+        CalculateMaintenanceCostOld calculateMaintenanceCostOld = new CalculateMaintenanceCostOld();
+        // class adapter use adaptee ( composition or inheritance ) to create the new method
+        //CalculateCostMaintenanceNew bikeMaintenanceAdapter = new BikeMaintenanceAdapter(calculateMaintenanceCostOld);
+        // test the new method
+       // System.out.println(bikeMaintenanceAdapter.calculateCostMaintenanceNew());
+
+        //with inheritance
+        //CalculateCostMaintenanceNew bikeMaintenanceAdapter=new BikeMaintenanceAdapter();
+        //bikeMaintenanceAdapter.calculateCostMaintenanceNew();
+        Buyer mohamed = new Buyer("mohamed");
+        Buyer ahmed = new Buyer("ahmed");
+        Buyer ali = new Buyer("ali");
+        ClassicBike classicBike1=new ClassicBike();
+        classicBike1.addBuyer(mohamed);
+        classicBike1.addBuyer(ahmed);
+        classicBike1.addBuyer(ahmed);
+        classicBike1.setAvailibility(true);
+
     }
 }

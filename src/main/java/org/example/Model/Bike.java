@@ -1,6 +1,8 @@
 package org.example.Model;
 
-public abstract class Bike {
+
+
+public abstract class Bike  {
     private String model;
     private String color;
     public void setModel(String model) {
