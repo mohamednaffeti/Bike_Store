@@ -19,4 +19,9 @@ public class ClassicBike extends Bike {
                 "FrameType='" + typeFrame + '\'' +
                 '}';
     }
+
+    @Override
+    public int cost() {
+        return 200;
+    }
 }

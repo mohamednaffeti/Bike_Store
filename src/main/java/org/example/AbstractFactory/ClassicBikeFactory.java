@@ -6,7 +6,7 @@ import org.example.Model.Bike;
 
 public class ClassicBikeFactory implements IBikeFactory {
     @Override
-    public Bike creerBicyclette(IBikeBuilder builder) {
+    public Bike createBike(IBikeBuilder builder) {
         if (builder instanceof IClassicBikeBuilder){
             return ((IClassicBikeBuilder) builder)
                     .setTypeFrame("steel frame")

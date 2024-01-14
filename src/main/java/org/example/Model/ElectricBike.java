@@ -19,4 +19,9 @@ public class ElectricBike extends Bike {
                 '}';
     }
 
+    @Override
+    public int cost() {
+        return 500;
+    }
+
 }
