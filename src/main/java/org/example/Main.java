@@ -14,6 +14,11 @@ import org.example.Model.Buyer;
 import org.example.Model.ClassicBike;
 import org.example.Model.ElectricBike;
 import org.example.Proxy.BikeProxy;
+import org.example.State.BikeContext;
+import org.example.State.RunningBike;
+import org.example.Strategy.BankCheck;
+import org.example.Strategy.BankTransfer;
+import org.example.Strategy.BikePaiementContext;
 
 
 public class Main {
@@ -54,6 +59,8 @@ public class Main {
         //with inheritance
         //CalculateCostMaintenanceNew bikeMaintenanceAdapter=new BikeMaintenanceAdapter();
         //bikeMaintenanceAdapter.calculateCostMaintenanceNew();
+
+        //Observer pattern
         Buyer mohamed = new Buyer("mohamed");
         Buyer ahmed = new Buyer("ahmed");
         Buyer ali = new Buyer("ali");
@@ -62,6 +69,20 @@ public class Main {
         classicBike1.addBuyer(ahmed);
         classicBike1.addBuyer(ahmed);
         classicBike1.setAvailibility(true);
+
+        //State pattern
+        BikeContext bikeContext = new BikeContext();
+        bikeContext.state();
+        bikeContext.setBikeState(new RunningBike());
+        bikeContext.state();
+
+
+        //Strategy pattern
+        BikePaiementContext bikePaiementContext = new BikePaiementContext();
+        bikePaiementContext.setPaymentMethod(new BankTransfer());
+        bikePaiementContext.PaimentMethod();
+        bikePaiementContext.setPaymentMethod(new BankCheck());
+        bikePaiementContext.PaimentMethod();
 
     }
 }
